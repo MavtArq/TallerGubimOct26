@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VisorGuBIMGal — visor BIM open-source para Galicia. Los ficheros IFC se procesan en tu navegador y nunca salen de él." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>VisorGuBIMGal</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- ── Toolbar ─────────────────────────────── -->
+      <header class="toolbar" role="toolbar" aria-label="Herramientas del visor">
+        <div class="brand">
+          <img src="/favicon.svg" alt="" width="22" height="22" />
+          <span>VisorGuBIMGal</span>
+        </div>
+
+        <div class="toolbar-group">
+          <button id="btn-open" class="btn btn-primary" type="button" title="Abrir uno o varios ficheros IFC">
+            Abrir IFC
+          </button>
+          <button id="btn-sample" class="btn" type="button" title="Cargar un modelo IFC de ejemplo">
+            Ejemplo
+          </button>
+          <input id="file-input" type="file" accept=".ifc" multiple hidden />
+          <input id="ids-input" type="file" accept=".ids,.xml" hidden />
+        </div>
+
+        <div class="toolbar-group">
+          <button id="btn-fit" class="btn" type="button" title="Encuadrar todos los modelos (F)">Encuadrar</button>
+          <div class="segmented" role="radiogroup" aria-label="Modo de render">
+            <button type="button" role="radio" data-mode="shaded" aria-checked="true">Sólido</button>
+            <button type="button" role="radio" data-mode="wireframe" aria-checked="false">Alámbrico</button>
+            <button type="button" role="radio" data-mode="xray" aria-checked="false">Rayos X</button>
+          </div>
+          <button id="btn-section" class="btn" type="button" aria-pressed="false" title="Plano de sección horizontal">
+            Sección
+          </button>
+        </div>
+      </header>
+
+      <!-- ── Área principal ──────────────────────── -->
+      <main class="main">
+        <aside class="sidebar" aria-label="Panel lateral">
+          <nav class="tabs" role="tablist">
+            <button type="button" role="tab" data-tab="models" aria-selected="true">Modelos</button>
+            <button type="button" role="tab" data-tab="tree" aria-selected="false">Estructura</button>
+            <button type="button" role="tab" data-tab="props" aria-selected="false">Propiedades</button>
+            <button type="button" role="tab" data-tab="ids" aria-selected="false">IDS</button>
+          </nav>
+          <section id="panel-models" class="panel" role="tabpanel" data-panel="models"></section>
+          <section id="panel-tree" class="panel" role="tabpanel" data-panel="tree" hidden></section>
+          <section id="panel-props" class="panel" role="tabpanel" data-panel="props" hidden></section>
+          <section id="panel-ids" class="panel" role="tabpanel" data-panel="ids" hidden></section>
+        </aside>
+
+        <section class="viewport" aria-label="Vista 3D">
+          <div id="viewport-3d" class="viewport-canvas"></div>
+
+          <div id="empty-state" class="empty-state">
+            <p class="empty-title">Arrastra aquí uno o varios ficheros <strong>.ifc</strong> (y opcionalmente un <strong>.ids</strong>)</p>
+            <p class="empty-sub">o usa «Abrir IFC». Los ficheros se procesan en tu navegador y nunca salen de él.</p>
+          </div>
+
+          <div id="drop-overlay" class="drop-overlay" hidden>Suelta para cargar los modelos o el IDS</div>
+
+          <div id="loading-overlay" class="loading-overlay" hidden>
+            <div class="spinner" aria-hidden="true"></div>
+            <span id="loading-text">Cargando…</span>
+          </div>
+
+          <div id="section-control" class="section-control" hidden>
+            <label for="section-range">Altura de corte</label>
+            <input id="section-range" type="range" min="0" max="1" step="0.001" value="0.5" />
+          </div>
+        </section>
+      </main>
+
+      <!-- ── Barra de estado ─────────────────────── -->
+      <footer class="statusbar">
+        <span id="status-message">Listo</span>
+        <span id="status-info" class="status-info"></span>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

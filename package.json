@@ -1,0 +1,28 @@
+{
+  "name": "visor-gubimgal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .ts",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e"
+  },
+  "dependencies": {
+    "maplibre-gl": "^4.7.1",
+    "proj4": "^2.12.1",
+    "three": "^0.170.0",
+    "web-ifc": "^0.0.66"
+  },
+  "devDependencies": {
+    "@types/proj4": "^2.5.5",
+    "@types/three": "^0.170.0",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.2",
+    "vitest": "^3.0.9"
+  }
+}

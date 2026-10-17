@@ -1,0 +1,65 @@
+/* Design tokens — VisorGuBIMGal */
+:root {
+  color-scheme: dark;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-md: 13px;
+  --fs-lg: 15px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  --toolbar-h: 48px;
+  --statusbar-h: 26px;
+  --sidebar-w: 320px;
+
+  --c-bg: #15181d;
+  --c-surface: #1c2027;
+  --c-surface-2: #242a33;
+  --c-border: #2f3742;
+  --c-text: #e6e9ee;
+  --c-text-muted: #9aa4b2;
+  --c-accent: #3b8eea;
+  --c-accent-strong: #0f6cbd;
+  --c-accent-soft: rgb(59 142 234 / 0.18);
+  --c-danger: #e5534b;
+  --c-pass: #3fb871;
+  --c-pass-soft: rgb(63 184 113 / 0.16);
+  --c-fail: #ef5b52;
+  --c-fail-soft: rgb(239 91 82 / 0.16);
+  --c-skip-soft: rgb(154 164 178 / 0.18);
+  --c-viewport-top: #2a3039;
+  --c-viewport-bottom: #14171c;
+  --c-overlay: rgb(10 12 15 / 0.72);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --c-bg: #f3f5f8;
+    --c-surface: #ffffff;
+    --c-surface-2: #eef1f5;
+    --c-border: #d6dbe2;
+    --c-text: #1b2129;
+    --c-text-muted: #5d6877;
+    --c-accent: #0f6cbd;
+    --c-accent-strong: #0b5aa0;
+    --c-accent-soft: rgb(15 108 189 / 0.12);
+    --c-pass: #1a7f45;
+    --c-pass-soft: rgb(26 127 69 / 0.12);
+    --c-fail: #c4302b;
+    --c-fail-soft: rgb(196 48 43 / 0.1);
+    --c-skip-soft: rgb(93 104 119 / 0.12);
+    --c-viewport-top: #e9edf2;
+    --c-viewport-bottom: #c9d1db;
+    --c-overlay: rgb(243 245 248 / 0.8);
+  }
+}
